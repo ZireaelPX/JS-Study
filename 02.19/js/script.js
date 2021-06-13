@@ -7,6 +7,7 @@ function first() {
 	}, 500);
 }
 
+
 function secons() {
 	console.log(2);
 }
@@ -21,5 +22,6 @@ function learn(lang, callback) {
 function data() {
 	console.log('Callback');
 }
+console.log("HELLO");
 
 learn('JS', data);
