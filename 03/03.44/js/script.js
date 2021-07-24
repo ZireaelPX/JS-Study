@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		}
 	});
 	// timer
-	const deadline = '2021-07-21';
+	const deadline = '2021-08-21';
 
 	function getTimeRemaining(endtime) {
 		const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -115,11 +115,14 @@ window.addEventListener("DOMContentLoaded", () => {
 	});
 
 	const modalTimerID = setTimeout(openModal, 5000);
-
+	console.log(document.documentElement.scrollHeight);
+	console.log(document.documentElement.clientHeight);
+	console.log(window.pageYOffset);
 	window.addEventListener('scroll', () => {
 		if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
 			openModal();
 		}
+		console.log(123);
 	});
 	function openModal() {
 		modal.classList.add('show');
