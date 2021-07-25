@@ -182,7 +182,7 @@ window.addEventListener("DOMContentLoaded", () => {
 			this.title = title;
 			this.descr = descr;
 			this.price = price;
-			this.clasees = classes;
+			this.clasees = classes; // || 'menu__item' - не будет работать
 			this.parentSelector = document.querySelector(parentSelector);
 			this.transfer = 74;
 			this.changeToRUB();
@@ -194,7 +194,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		render() {
 			const element = document.createElement('div');
-			this.clasees.forEach(className => element.classList.add(className));
+
+			if (this.clasees.length === 0) {
+				this.element = 'menu__item';
+				element.classList.add(this.element);
+			} else {
+				this.clasees.forEach(className => element.classList.add(className));
+			}
+
 			element.innerHTML = `
 					<img src="${this.src}" alt="${this.alt}">
 					<h3 class="menu__item-subtitle">${this.title}</h3>
@@ -216,7 +223,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
 		13,
 		'.menu .container',
-		'menu__item'
+
 	).render();
 
 	new MenuCard(
@@ -226,8 +233,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		'Меню “Премиум” - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
 		132,
 		'.menu .container',
-		'menu__item',
-		'big'
+
 	).render();
 
 
@@ -238,7 +244,6 @@ window.addEventListener("DOMContentLoaded", () => {
 		'Меню Постное - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
 		2,
 		'.menu .container',
-		'menu__item'
 	).render();
 
 });
