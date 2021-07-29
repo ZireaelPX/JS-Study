@@ -22,3 +22,4 @@ const sadBTN = document.querySelector('button');
 sadBTN.addEventListener('click', (e) => {
 	e.target.remove();
 });
+console.log('a' * 'b');
