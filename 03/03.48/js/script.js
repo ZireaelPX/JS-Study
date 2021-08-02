@@ -169,9 +169,9 @@ window.addEventListener("DOMContentLoaded", () => {
 	// const cardsFitnes = new Cards('Меню "Фитнес"', 229, 'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!', 'img/tabs/vegy.jpg');
 	// const cardsPremium = new Cards('Меню “Премиум”', 550, 'В меню “Премиум” мы используем не только красивый дизайн упаковки, нои качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без походав ресторан!', 'img/tabs/elite.jpg');
 	// const cardsPostnoe = new Cards('Меню "Постное"', 430, 'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!', 'img/tabs/post.jpg');
-	// cardsFitnes.showCards(menuBlock);
-	// cardsPremium.showCards(menuBlock);
-	// cardsPostnoe.showCards(menuBlock);
+	// cardsFitnes.createCards(menuBlock);
+	// cardsPremium.createCards(menuBlock);
+	// cardsPostnoe.createCards(menuBlock);
 
 	// Способ из видео
 
