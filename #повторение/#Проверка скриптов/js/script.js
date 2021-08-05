@@ -23,3 +23,7 @@ sadBTN.addEventListener('click', (e) => {
 	e.target.remove();
 });
 console.log('a' * 'b');
+
+
+let arr = [1, 2, 1113];
+console.log(arr[arr.length - 1]);
