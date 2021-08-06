@@ -16,4 +16,6 @@ inputRUB.addEventListener('input', () => {
 			inputUSD.value = 'Ошибка';
 		}
 	});
+	const USD = 74;
+	inputUSD.value = (+inputRUB.value / USD).toFixed(3);
 });
