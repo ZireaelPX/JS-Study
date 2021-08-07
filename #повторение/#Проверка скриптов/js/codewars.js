@@ -82,3 +82,77 @@ function howManydays(month) {
 		default: return 31;
 	}
 }
+
+//Задача
+// Coding in function padIt, function accept 2 parameters:
+
+// str, it's a string representing the string to pad, we need pad some "*" at leftside or rightside of str
+// n, it's a number, how many times to pad the string.
+// Behaviour
+// You need to write a loop statement within the function that loops n times. Each time through the loop it will add one * to str, alternating
+//  on which side it is padded: the first time will add a * to the left side of str, the second time will add a * to the right side, and so on.
+
+// Finally, return the padded string.
+//Моё решение
+
+function padIt(str, n) {
+	//coding here
+	let i = 1;
+	while (i <= n) {
+		if (i % 2 == 1) {
+			str = '*' + str;
+		} else {
+			str = str + '*';
+		}
+		console.log(str);
+		i++;
+	}
+
+	return str;
+
+}
+
+padIt('wtf', 10);
+
+// Решение с codewars
+function padIt(str, n) {
+	while (n > 0) {
+		if (n % 2 === 0) {
+			str = str + "*";
+		} else {
+			str = "*" + str;
+		}
+		n--;
+		console.log(str);
+
+	}
+
+
+	return str;
+}
+
+// function sumA() {
+// 	for (var sum = 0, num = 1; num <= 100; num++) {
+// 		sum += num;
+// 		console.log(sum);
+// 	}
+// 	return sum;
+// }
+// sumA();
+
+
+function pickIt(arr) {
+	var odd = [], even = [];
+	//coding here
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] % 2 == 0) {
+			even.push(arr[i]);
+		} else {
+			odd.push(arr[i]);
+		}
+	}
+	console.log('Нечётный', odd);
+	console.log('Чётный', even);
+	return [odd, even];
+}
+pickIt([10, 20, 30]);
