@@ -213,3 +213,112 @@ function grabDoll(dolls) {
 //2
 grabDoll = dolls =>                         // reduce instead for(...) break continue
 	dolls.filter(i => i == 'Hello Kitty' || i == 'Barbie doll').slice(0, 3);
+
+
+//FOR IN FOR OF
+
+function showObjectKeys(obj) {
+	for (var key in obj) {
+		console.log(key);
+	}
+}
+function showObjectValues(obj) {
+	for (var key in obj) {
+		console.log(obj[key]);
+	}
+}
+var ob = { item1: "This", item2: "is", item3: "an", item4: "example" };
+// showObjectKeys(ob);
+showObjectValues(ob);
+
+
+function showObjectKeys(obj) {
+	for (var key in obj) {
+		console.log(key);
+	}
+}
+function showObjectValues(obj) {
+	for (var key in obj) {
+		console.log(obj[key]);
+	}
+}
+var arrr = ["one", "two", "three"];
+console.log("keys of arr:");
+showObjectKeys(arrr);
+console.log("values of arr:");
+showObjectValues(arrr);
+
+let wqe = ["one", "two", "three"]
+for (var value of wqe) {
+	console.log(value);
+}
+//FOR IN FOR OF
+
+// Task
+// Coding in function giveMeFive, function accept 1 parameter: obj, it's an object.
+// You need to the traverse the obj, if the length of the object key equals to 5,
+// 	then push the key value to the array(you need to define the array by yourself,
+// 		this time I won't help you). Additionally push the value to the array as well, 
+// 	if the length of the value is equal to 5.
+// Return the five after works finished.
+// You should use for..in in your code, otherwise, your solution may not pass this kata.
+
+// Моё решение
+function giveMeFive(obj) {
+	//coding here
+	let words = [];
+
+	for (let key in obj) {
+		if (key.length === 5 && obj[key].length === 5) {
+			words.push(key);
+			words.push(obj[key]);
+		} else if (obj[key].length === 5) {
+			words.push(obj[key]);
+		} else if (key.length === 5) {
+			words.push(key);
+		}
+	}
+	return words;
+}
+
+giveMeFive({ Pears: "than", apple: "sweet" });
+
+
+
+// Моё решение 2 - с помощью ответов в KATA
+function giveMeFive(obj) {
+	//coding here
+	let words = [];
+
+	for (let key in obj) {
+		if (key.length === 5) {
+			words.push(key);
+		}
+		if (obj[key].length === 5) {
+			words.push(obj[key]);
+		}
+	}
+	console.log(words);
+	return words;
+}
+
+giveMeFive({ Pears: "than", apple: "sweet" });
+
+// Решение с codewars
+function giveMeFive(obj) {
+	let words = [];
+	for (var key in obj) {
+		if (key.length == 5) {
+			words.push(key);
+		}
+		if (obj[key].length == 5) {
+			words.push(obj[key]);
+		}
+	}
+	return words;
+}
+
+giveMeFive({ Pears: "than", apple: "sweet" });
+
+// console.log(key);//Our is 
+// console.log(obj[key]);//earth a world
