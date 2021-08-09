@@ -8,7 +8,7 @@
 Реализовать только при помощи JS+
 
 4) Список фильмов на странице сформировать на основании данных из этого JS файла.
-Отсортировать их по алфавиту +
+Отсортировать их по алфавиту 
 
 5) Добавить нумерацию выведенных фильмов 
 */
@@ -31,85 +31,79 @@ P.S. Здесь есть несколько вариантов решения з
 'use strict';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const promoAdvImgs = document.querySelectorAll('.promo__adv img');
-    const promoGenre = document.querySelector('.promo__genre');
-    const promoBg = document.querySelector('.promo__bg');
-    const promoInteractiveList = document.querySelector('.promo__interactive-list');
-    const addForm = document.querySelector('.add');
-    const addInput = document.querySelector('.adding__input');
-    const addCheckbox = document.querySelector('[type="checkbox"]');
-    const deleteFilms = document.querySelectorAll('.delete');
-
+    const promoAVD = document.querySelectorAll('.promo__adv img'),
+        promoGenre = document.querySelector('.promo__genre'),
+        promoBG = document.querySelector('.promo__bg'),
+        promoInteractiveList = document.querySelector('.promo__interactive-list'),
+        formAdd = document.querySelector('form.add'),
+        addingInput = formAdd.querySelector('.adding__input'),
+        formCheckbox = formAdd.querySelector('[type="checkbox');
     const movieDB = {
         movies: [
             "Логан",
             "Лига справедливости",
             "Ла-ла лэнд",
             "Одержимость",
-            "Скотт Пилигрим против..."
+            "Скотт Пилигрим против...",
         ]
     };
-    addForm.addEventListener('submit', (e) => {
+
+
+    formAdd.addEventListener('submit', (e) => {
         e.preventDefault();
-        let addValueInput = addInput.value.toUpperCase();
-        const checboxBoolen = addCheckbox.checked;
-        if (addValueInput) {
-            if (addValueInput.length > 21) {
-                addValueInput = `${addValueInput.substring(0, 22)}...`;
+        let value = addingInput.value;
+        if (value) {
+            if (value.length > 21) {
+                value = value.substring(0, 21) + "...";
+                console.log(value);
             }
-            if (checboxBoolen) {
-                console.log("Ваш любимый фильм");
+            if (formCheckbox) {
+                console.log('Любимый фильм');
             }
-            movieDB.movies.push(addValueInput);
-            console.log(movieDB.movies);
-            newFilms(movieDB.movies, promoInteractiveList);
+            movieDB.movies.push(value);
+            movieDB.movies.sort();
+            createFilms(movieDB.movies, promoInteractiveList);
+            formAdd.reset();
         }
-
     });
-    const deleteADV = (AdvImg) => {
-        AdvImg.forEach((adv) => {
-            adv.remove();
-        });
-    };
 
-    const somethingDo = () => {
-        promoGenre.textContent = "Драма";
-        promoBg.style.backgroundImage = "url('img/bg.jpg')";
-    };
 
-    const sortFilms = (arr) => {
-        arr.sort();
-    };
+    promoAVD.forEach((item) => {
+        item.remove();
+    });
 
-    const newFilms = (films, parent) => {
-        parent.innerHTML = "";
+    promoGenre.textContent = "Драма";
+    promoBG.style.backgroundImage = 'url("img/bg.jpg")';
+    movieDB.movies.sort();
 
-        sortFilms(films);
-        films.forEach((item, i) => {
-            parent.innerHTML += `
+    // deleteFilms.forEach((item, i) => {
+    //     item.addEventListener('click', () => {
+    //         console.log(item.parentElement);
+    //     });
+    // }); - не получится из-за, того что элементы созданы динамически
+
+    function createFilms(arr, addList) {
+        addList.innerHTML = '';
+        arr.forEach((item, i) => {
+            item.toString().toUpperCase();
+            addList.innerHTML += `                       
                 <li class="promo__interactive-item">${i + 1}. ${item}
                     <div class="delete"></div>
                 </li>
             `;
         });
-        // document.querySelectorAll('.delete').forEach((btn, i) => {
-        //     btn.addEventListener("click", (e) => {
-        //         console.log(e.target);
-        //     });
-        // });
-        document.querySelectorAll('.delete').forEach((btn, i) => {
-            btn.addEventListener("click", (e) => {
+        document.querySelectorAll('.delete').forEach((item, i) => {
+            item.addEventListener('click', (e) => {
                 const target = e.target;
-                console.log(target);
                 console.log(target.parentElement);
                 target.parentElement.remove();
-                films.splice(i, 1);
-                console.log(films);
-                newFilms(movieDB.movies, promoInteractiveList);
+                arr.splice(i, 1);
+                console.log(arr);
+                createFilms(movieDB.movies, promoInteractiveList);
             });
         });
+    }
 
-    };
-    deleteADV(promoAdvImgs);
-    newFilms(movieDB.movies, promoInteractiveList);
+    createFilms(movieDB.movies, promoInteractiveList);
+
 });
