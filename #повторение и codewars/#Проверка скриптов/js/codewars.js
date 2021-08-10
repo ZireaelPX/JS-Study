@@ -322,3 +322,135 @@ giveMeFive({ Pears: "than", apple: "sweet" });
 
 // console.log(key);//Our is 
 // console.log(obj[key]);//earth a world
+
+
+
+// Задача
+// Coding in function whatNumberIsIt. function accept 1 parameter:n. it's a number.
+
+// To judge the number n. If n is one of the above five constants, return one of these string:
+
+// "Input number is Number.MAX_VALUE"
+// "Input number is Number.MIN_VALUE"
+// "Input number is Number.NaN"
+// "Input number is Number.NEGATIVE_INFINITY"
+// "Input number is Number.POSITIVE_INFINITY"
+// Other values should return "Input number is xxx". xxx means this number.
+
+// For example:
+
+// whatNumberIsIt(1/0) should return "Input number is Number.POSITIVE_INFINITY"
+// whatNumberIsIt(100) should return "Input number is 100"
+// What you need to think about is how to judge it correctly and effectively and don't forget isNaN().
+
+// разбор теории
+console.log(Number.MAX_VALUE);
+console.log(Number.MIN_VALUE);
+console.log(Number.NaN);
+console.log(Number.isNaN(1));
+console.log(isNaN(NaN));
+console.log(Number.NEGATIVE_INFINITY);
+console.log(Number.POSITIVE_INFINITY);
+console.log(-Number.MAX_VALUE * 2);
+console.log(isNaN(100));
+
+// моё решение
+function whatNumberIsIt(n) {
+	//coding here
+	if (n === Number.POSITIVE_INFINITY) {
+		return "Input number is Number.POSITIVE_INFINITY";
+	} else if (n === Number.MAX_VALUE) {
+		return "Input number is Number.MAX_VALUE";
+	} else if (n === Number.MIN_VALUE) {
+		return "Input number is Number.MIN_VALUE";
+	} else if (n === Number.NEGATIVE_INFINITY) {
+		return "Input number is Number.NEGATIVE_INFINITY";
+	} else if (isNaN(n)) {
+		return "Input number is Number.NaN";
+	} else {
+		return `Input number is ${n}`;
+	}
+}
+
+
+// моё решение
+function whatNumberIsIt(n) {
+	//coding here
+	return (n === Number.POSITIVE_INFINITY) ? "Input number is Number.POSITIVE_INFINITY" :
+		(n === Number.MAX_VALUE) ? "Input number is Number.MAX_VALUE" :
+			(n === Number.MIN_VALUE) ? "Input number is Number.MIN_VALUE" :
+				(n === Number.NEGATIVE_INFINITY) ? "Input number is Number.NEGATIVE_INFINITY" :
+					(isNaN(n)) ? "Input number is Number.NaN" :
+						`Input number is ${n}`;
+}
+
+whatNumberIsIt(whatNumberIsIt(100));
+console.log(whatNumberIsIt(100));
+whatNumberIsIt(1.7976931348623157e+308);
+whatNumberIsIt(5e-324);
+whatNumberIsIt(100);
+whatNumberIsIt(100);
+
+//Codewars
+//1
+function whatNumberIsIt(n) {
+	switch (n) {
+		case Number.MAX_VALUE: return ("Input number is Number.MAX_VALUE");
+		case Number.MIN_VALUE: return ("Input number is Number.MIN_VALUE");
+		case Number.POSITIVE_INFINITY: return ("Input number is Number.POSITIVE_INFINITY");
+		case Number.NEGATIVE_INFINITY: return ("Input number is Number.NEGATIVE_INFINITY");
+		case Number(n): return "Input number is " + n;
+		default: return "Input number is Number.NaN";
+	}
+}
+//2
+function whatNumberIsIt(n) {
+	const CHOICES = Object.getOwnPropertyNames(Number);
+	let choice = CHOICES.filter(a => n === Number[a]).join('');
+	return `Input number is ${(choice ? `Number.${choice}` : isNaN(n) ? 'Number.NaN' : n)}`;
+
+}
+
+let a = 15,
+	b = 16,
+	c = 17;
+a = a.toString(16);
+b = b.toString(16);
+
+c = c.toString(16);
+console.log(a);
+console.log(b);
+console.log(c);
+
+
+// Моё решение
+function colorOf(r, g, b) {
+	//coding here
+
+	r = r.toString(16);
+	g = g.toString(16);
+	b = b.toString(16);
+	if (r.length === 1) {
+		r = '0' + r;
+	}
+	if (g.length === 1) {
+		g = '0' + g;
+	}
+	if (b.length === 1) {
+		b = '0' + b;
+	}
+
+	console.log(`#${r}${g}${b}`);
+	return `#${r}${g}${b}`;
+}
+colorOf(127, 182, 15);
+colorOf(19, 220, 98);
+
+// Решение из интернета
+function rgb(c) {
+	let color = c.toString(16);
+	return color.length === 1 ? '0' + color : color;
+}
+function colorOf(r, g, b) {
+	return `#${rgb(r)}${rgb(g)}${rgb(c)}`;
+}
