@@ -3,11 +3,9 @@ window.addEventListener("DOMContentLoaded", () => {
 	const tabheaderItem = document.querySelectorAll('.tabheader__item');
 	const tabcontent = document.querySelectorAll('.tabcontent');
 
-
 	function hide() {
 		tabcontent.forEach((item) => {
 			item.classList.add('hide');
-			item.classList.remove('show');
 		});
 		tabheaderItem.forEach((item) => {
 			item.classList.remove('tabheader__item_active');
@@ -18,9 +16,9 @@ window.addEventListener("DOMContentLoaded", () => {
 		tabcontent[i].classList.remove('hide');
 		tabheaderItem[i].classList.add('tabheader__item_active');
 	}
-
 	hide();
 	show();
+
 	tabheaderItems.addEventListener('click', (e) => {
 		const target = e.target;
 
@@ -31,7 +29,6 @@ window.addEventListener("DOMContentLoaded", () => {
 					show(i);
 				}
 			});
-
 		}
 	});
 });
