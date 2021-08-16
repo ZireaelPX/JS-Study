@@ -452,5 +452,5 @@ function rgb(c) {
 	return color.length === 1 ? '0' + color : color;
 }
 function colorOf(r, g, b) {
-	return `#${rgb(r)}${rgb(g)}${rgb(c)}`;
+	return `#${rgb(r)}${rgb(g)}${rgb(b)}`;
 }
