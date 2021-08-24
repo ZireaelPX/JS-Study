@@ -99,3 +99,8 @@ if (null || -1 && 1) {
 	console.log('nosad');
 }
 
+console.log(1 && null && NaN);
+console.log(1 || 2);
+console.log(null || undefined);
+console.log(null || 2 && 3 || 2 && null);
+//                     3	       null
