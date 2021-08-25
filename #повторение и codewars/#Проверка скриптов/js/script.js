@@ -104,3 +104,6 @@ console.log(1 || 2);
 console.log(null || undefined);
 console.log(null || 2 && 3 || 2 && null);
 //                     3	       null
+
+
+
