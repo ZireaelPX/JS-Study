@@ -106,4 +106,53 @@ console.log(null || 2 && 3 || 2 && null);
 //                     3	       null
 
 
+const arrr = [1, 2, 3, 1000];
+console.log(Math.max(...arrr));
+let sum = 0;
+for (let index = 0; index < arrr.length; index++) {
+	sum += arrr[index];
+	return sum;
+}
+console.log(sum);
+
+// function sum(arr) {
+// 	return arr.reduce(function(total, value) {
+// 	    return total + value;
+// 	}, 0);
+//  }); - перебор массива для нахождения суммы массива
+// subArr.reduce((a,b)=>a+b,0) - перебор массива для нахождения суммы массива
+
+
+//	найти максимальную сумму непрервыного подмассива из списка целых чисел
+//	найти среди всех возможных вариантов подмассивов максимальную сумму
+//	перебрать все варианты начала подмассива, и для каждого из вариантов перебрать все вомзожные окончания, и найти сумму, и выбрать максимальную сумму. Запонмить сумму. ПОСЛЕ: найти максимальный
+//	
+//
+//
+//
+
+const sumArr = (subArr) => {
+	//   let sum = 0;
+	//   for (let index = 0; index < subArr.length; index++) {
+	// 	  sum += arrr[index];
+	// 	  return sum;
+	//   }
+	return subArr.reduce((a, b) => a + b, 0);
+};
+
+
+var maxSequence = function (wholeArr) {
+	const allSum = [];
+	for (let start = 0; start < wholeArr.length; start++) {
+		for (let finish = start; finish < wholeArr.length; finish++) {
+			const subArray = wholeArr.slice(start, finish);
+			const sum = sumArr(subArray);
+			allSum.push(sum);
+		}
+	}
+
+};
+
+maxSequence([1, 2, 3]);
+
 
